@@ -92,18 +92,18 @@ class Database {
 
             if ($result->num_rows > 0) {
 
-//             This is how you display results
+                // This is how you display results
                 while ($row = mysqli_fetch_array($result)) {
 
-                    return true;
+                    echo 'got it';
 
                 }
 
-//                return true;
-
             }
             else {
+
                 var_dump($result);
+
             }
 
         }
@@ -119,11 +119,11 @@ class Database {
             if ($result->num_rows > 0) {
 
 //             This is how you display results
-//                while ($row = mysqli_fetch_array($result)) {
-////
-////                    echo json_encode($row);
-////
-////                }
+                while ($row = mysqli_fetch_array($result)) {
+//
+                    echo json_encode($row);
+
+                }
 
                 return true;
 

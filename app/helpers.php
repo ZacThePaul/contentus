@@ -1,8 +1,11 @@
 <?php
 
-function views($file) {
+function views($file, $slug) {
 
-    return dirname('index.php') . '/views/' . $file;
+    $_SESSION['filename'] = $file;
+    $_SESSION['slug'] = $slug;
+
+    return dirname('index.php') . '/views/base.php';
 
 }
 
@@ -24,5 +27,17 @@ function is_user_logged_in() {
             return true;
         }
     }
+
+}
+
+function get_header() {
+
+    include_once "views/partials/header.php";
+
+}
+
+function get_footer() {
+
+    include_once "views/partials/footer.php";
 
 }

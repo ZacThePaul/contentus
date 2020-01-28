@@ -1,7 +1,3 @@
-<?php
-var_dump($_SESSION);
-?>
-
 <h1>This is the logged out home page</h1>
 
 

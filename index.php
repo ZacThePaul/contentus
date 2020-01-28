@@ -29,13 +29,13 @@ if(is_user_logged_in()) {
 
     // Get routes
     if($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $router->get('/', views('home.php'));
-        $router->get('/home', views('home.php'));
-        $router->get('/dashboard', views('dashboard/dashboard.php'));
-        $router->get('/about', views('about.html'));
-        $router->get('/register', views('auth/register.php'));
+        $router->get('/', views('home.php', 'Home'));
+        $router->get('/home', views('home.php', 'Home'));
+        $router->get('/dashboard', views('dashboard/dashboard.php', 'Dashboard'));
+        $router->get('/about', views('about.html', 'About'));
+        $router->get('/register', views('auth/register.php', 'Register'));
         // if user is logged in reroute them to the dashboard
-        $router->get('/login', views('auth/login.php'));
+        $router->get('/login', views('auth/login.php', 'Login'));
     }
 
     // Post routes
@@ -49,11 +49,11 @@ elseif(!is_user_logged_in()) {
 
     // Get routes
     if($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $router->get('/', views('index.php'));
-        $router->get('/home', views('home.php'));
-        $router->get('/about', views('about.html'));
-        $router->get('/register', views('auth/register.php'));
-        $router->get('/login', views('auth/login.php'));
+        $router->get('/', views('index.php', 'Home'));
+        $router->get('/home', views('home.php', 'Home'));
+        $router->get('/about', views('about.html', 'About'));
+        $router->get('/register', views('auth/register.php', 'Register'));
+        $router->get('/login', views('auth/login.php', 'Login'));
     }
 
     // Post routes

@@ -1,7 +1,8 @@
 <?php
+    // in order to use blade-like syntax, you need to create a file structure.
+    // So the router sees your request, decides the template you want to use,
+    // Then serves up the base template with the content template filling it in.
 ?>
-
-
 
 <h1>Welcome to the registration page</h1>
 

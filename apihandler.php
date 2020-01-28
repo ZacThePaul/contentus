@@ -10,8 +10,6 @@ foreach (glob("controllers/*.php") as $filename)
 
 $configs = include('config.php');
 
-
-
 //  This file is specifically to handle incoming API calls
 
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -20,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     $method = $_GET['method'];
 
-    $database->$method('user', 'zac@curiousm.com');
+    $database->$method('user', 'zbanas443@hcc.edu');
 
 }
 
