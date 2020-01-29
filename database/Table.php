@@ -7,15 +7,15 @@ class Table {
     }
 
     public function autoincrement($name) {
-        return $name . ' INT AUTO_INCREMENT';
+        return '`' . $name . '`' . ' int(11) auto_increment';
     }
 
     public function varchar($name, $length, $nullable = true) {
         if($nullable) {
-            return $name . ' VARCHAR(' . $length . ')';
+            return '`' . $name . '`' . ' VARCHAR(' . $length . ')';
         }
         elseif(!$nullable) {
-            return $name . ' VARCHAR(' . strval($length) . ') NOT NULL';
+            return '`' . $name . '`' . ' VARCHAR(' . strval($length) . ') NOT NULL';
         }
     }
 
@@ -26,10 +26,10 @@ class Table {
     public function timestamp($name, $length, $nullable = true) {
 
         if($nullable) {
-            return $name . ' VARCHAR(' . $length . ')';
+            return '`' . $name . '`' . ' VARCHAR(' . $length . ')';
         }
         elseif(!$nullable) {
-            return $name . ' VARCHAR(' . $length . ') NOT NULL';
+            return '`' . $name . '`' . ' VARCHAR(' . $length . ') NOT NULL';
         }
     }
 
@@ -39,6 +39,15 @@ class Table {
         }
         elseif(!$nullable) {
             return $name . ' INT NOT NULL';
+        }
+    }
+
+    public function longtext($name, $nullable = true) {
+        if($nullable) {
+            return $name . ' LONGTEXT';
+        }
+        elseif(!$nullable) {
+            return $name . ' LONGTEXT NOT NULL';
         }
     }
 

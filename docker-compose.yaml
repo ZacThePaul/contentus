@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  mysql-dev:
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: contentususer
+      MYSQL_PASSWORD: contentuspass
+      MYSQL_ROOT_PASSWORD: contentuspass
+      MYSQL_DATABASE: contentus
+    ports:
+      - "4306:3306"

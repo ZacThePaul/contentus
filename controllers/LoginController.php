@@ -1,6 +1,6 @@
 <?php
 
-$configs = include('config.php');
+$configs = include_once('config.php');
 require_once('database/Database.php');
 
 class loginController {
@@ -24,16 +24,23 @@ class loginController {
         if ($valid_email) {
 
             // if the email is good check password
-            $valid_password = $database->select('user', $user_email, true, $user_password);
+            $valid_password = $database->select('user', $user_email, false, $user_password);
 
             if($valid_password) {
 
-                include('app/User.php');
+                include_once('app/User.php');
 
-                session_start();
+//                session_start();
+
                 $user = new User();
+
+                $user->email = $user_email;
+                $user->name = $valid_password['name'];
+                $user->id = $valid_password['id'];
+
                 $_SESSION['user'] = $user;
                 $_SESSION['user']->logged_in = true;
+
                 echo json_encode(true);
 
             }

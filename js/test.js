@@ -1,13 +1,3 @@
-// let user = $.ajax({
-//     url: 'apihandler.php?class=Database&method=select',
-//     type: 'GET',
-//     success: function(data) {
-//         let user = JSON.parse(data);
-//         $('#username').text(user.name);
-//     }
-// });
-
-
 function createUser(event) {
 
     // Data gathered here -> API handler -> method -> API Handler -> Here -> View

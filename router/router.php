@@ -1,7 +1,7 @@
 <?php
 
 require_once('app/helpers.php');
-$configs = include('config.php');
+$configs = include_once('config.php');
 
 class Router {
 
@@ -15,10 +15,11 @@ class Router {
 
     public function get($route, $file, $function = null) {
 
+//        die('<br>base uri= ' . $this->base_uri . ' <br>| file = ' . $file . '<br> | req = ' . $this->request . '<br> | route = ' . $route );
+
         switch ($this->request) {
 
             case $this->request === $this->base_uri :
-                echo 'home';
                 require $this->base_uri . $file;
                 break;
             case $this->request === $this->base_uri . $route :
@@ -30,7 +31,6 @@ class Router {
     }
 
     public function post($route, $file, $class, $method) {
-
 
         require_once(controllers($file));
 

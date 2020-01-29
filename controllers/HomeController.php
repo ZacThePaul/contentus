@@ -1,6 +1,6 @@
 <?php
 
-include('config.php');
+include_once('config.php');
 require_once('database/Database.php');
 
 class HomeController {
