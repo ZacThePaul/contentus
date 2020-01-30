@@ -18,7 +18,7 @@ $array_items = unserialize($menu_items[0])
         <?php foreach ($array_items as $item) : ?>
 
             <li class="<?= $menu_class; echo $_SESSION['slug'] === $item ? ' active-menu' : $_SESSION['slug'] . $item?>">
-                <a href="<?= $item ?>"> <?= $item ?> </a>
+                <a href="<?= $GLOBALS['base_uri'] . '/' . $item ?>"> <?= $item ?> </a>
             </li>
 
         <?php endforeach; ?>

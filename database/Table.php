@@ -51,4 +51,14 @@ class Table {
         }
     }
 
+    public function enum($name, $values, $nullable = true ) {
+
+        if($nullable) {
+             return $name . ' ENUM("Uncategorized")';
+        }
+        elseif(!$nullable) {
+            return $name . ' ENUM(' . implode(", ", $values) . ') NOT NULL';
+        }
+    }
+
 }

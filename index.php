@@ -2,6 +2,8 @@
 
 global $database;
 
+$path = __DIR__;
+
 include_once('app/User.php');
 $configs = include_once('config.php');
 
@@ -60,6 +62,7 @@ else {
         $router->get('/posts', views('dashboard/admin-page-template.php', 'posts'));
         $router->get('/settings', views('dashboard/admin-page-template.php', 'settings'));
         $router->get('/logout', views('auth/logout.php', 'logout'));
+        $router->get('/media', views('dashboard/media/media-page-template.php', 'media'));
     }
 
     // Post routes

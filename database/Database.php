@@ -170,7 +170,18 @@ class Database {
 
     }
 
+    public function core_post_types() {
+
+//        $pages = ['page', 'page', '']
+//
+//        $new_sql = "INSERT INTO `post_types` (`name`, `slug`, `categories`, `custom_attributes`) VALUES ('con_core_menu', '$core_menu_items', 'menu-items', '$time', '$time')";
+//        mysqli_query($this->connection, $new_sql)or die(var_dump($new_sql));
+
+    }
+
     public function migrations() {
+
+        // This function should run at install
 
         require_once('Table.php');
         $table = new Table();
@@ -201,6 +212,34 @@ class Database {
             $table->varchar('class_names', 55, true),
             $table->timestamp('created_at', 55),
             $table->timestamp('updated_at', 55, true),
+            $table->primarykey('id')
+        ]);
+
+        // Migration for the core post types table
+        $this->create_table('post_types', [
+            $table->autoincrement('id'),
+            $table->varchar('name', 55, false),
+            $table->varchar('slug', 55, false),
+            $table->varchar('categories', 500, true),
+            $table->varchar('custom_attributes', 500, true),
+            $table->primarykey('id')
+        ]);
+
+        // Migration for the core category table
+        $this->create_table('post_type_categories', [
+            $table->autoincrement('id'),
+            $table->integer('post_type_id', false),
+            $table->varchar('name', 55, false),
+            $table->varchar('slug', 55, false),
+            $table->primarykey('id')
+        ]);
+
+        // Migration for the core post type custom attributes table
+        $this->create_table('post_type_custom_attributes', [
+            $table->autoincrement('id'),
+            $table->integer('post_type_id', false),
+            $table->varchar('attribute_name', 55, false),
+            $table->varchar('attribute_value', 500, true),
             $table->primarykey('id')
         ]);
 

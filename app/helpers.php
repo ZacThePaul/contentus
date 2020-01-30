@@ -41,3 +41,16 @@ function get_footer() {
     include_once "views/partials/footer.php";
 
 }
+
+function get_path($file) {
+
+    global $path;
+
+    if($file) :
+        $new_path = str_replace('.', '/', $file);
+        echo $path . '/' . $new_path;
+    else:
+        echo $path;
+    endif;
+
+}

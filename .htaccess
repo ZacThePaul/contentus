@@ -2,7 +2,11 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^\w+$ index.php?page=$0 [L]
+RewriteRule ^([^/]*)(.*)$ index.php?first=$1&second=$2
 RewriteCond %{THE_REQUEST} index\.php
 RewriteCond %{QUERY_STRING} ^page=(\w+)$
 RewriteRule ^index\.php$ /%1? [R=301,L]
+
+# The way I fixed the multiple / error is by changing this
+# RewriteRule ^\w+$ index.php?page=$0 [L]     to this
+# RewriteRule ^([^/]*)(.*)$ index.php?first=$1&second=$2

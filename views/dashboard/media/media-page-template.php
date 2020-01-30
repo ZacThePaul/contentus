@@ -1,11 +1,10 @@
 <?php
 $user = $_SESSION['user'];
-
-//die(var_dump($_SESSION));
 ?>
+
 <div id="dashboard-container">
 
-    <?php include(__DIR__ . '/partials/admin-bar.php') ?>
+    <?php include_once(__DIR__ .  '/../partials/admin-bar.php')?>
 
     <div id="dashboard-content">
 
@@ -19,8 +18,6 @@ $user = $_SESSION['user'];
                     <input type="text" class="search-bar" placeholder="Search your site...">
                     <i class="fa fa-search search-icon"></i>
                 </form>
-
-
 
             </div>
 
